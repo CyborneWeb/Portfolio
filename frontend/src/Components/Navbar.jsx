@@ -1,17 +1,35 @@
 import React, { useState } from "react";
-import { FaBars, FaTimes, FaHome, FaUser, FaProjectDiagram, FaEnvelope } from "react-icons/fa";
+import {
+  FaBars,
+  FaTimes,
+  FaHome,
+  FaUser,
+  FaProjectDiagram,
+  FaEnvelope,
+} from "react-icons/fa";
 import { motion, AnimatePresence } from "framer-motion";
+import { useTranslation } from "react-i18next";
 
 // Array of nav items with icons
-const navItems = [
-  { name: "Home", href: "#home", icon: <FaHome className="inline mr-2" /> },
-  { name: "About", href: "#about", icon: <FaUser className="inline mr-2" /> },
-  { name: "Projects", href: "#projects", icon: <FaProjectDiagram className="inline mr-2" /> },
-  { name: "Contact", href: "#contact", icon: <FaEnvelope className="inline mr-2" /> },
-];
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
+  const { t, i18n } = useTranslation();
+
+  const navItems = [
+    { name: t('navbar.home'), href: "#home", icon: <FaHome className="inline mr-2" /> },
+    { name: t('navbar.about'), href: "#about", icon: <FaUser className="inline mr-2" /> },
+    {
+      name: t('navbar.projects'),
+      href: "#projects",
+      icon: <FaProjectDiagram className="inline mr-2" />,
+    },
+    {
+      name: t('navbar.contact'),
+      href: "#contact",
+      icon: <FaEnvelope className="inline mr-2" />,
+    },
+  ];
 
   return (
     <nav className="fixed top-0 left-0 w-full z-50 bg-transparent backdrop-blur-md transition-colors duration-300">
@@ -70,6 +88,13 @@ const Navbar = () => {
           </motion.div>
         )}
       </AnimatePresence>
+
+            <button
+        onClick={() => i18n.changeLanguage(i18n.language === 'en' ? 'sl' : 'en')}
+        className="absolute left-4 top-4 bg-gray-200 dark:bg-gray-700 px-2 py-1 rounded"
+      >
+        {i18n.language === 'en' ? 'Slovenščina' : 'English'}
+      </button>
     </nav>
   );
 };
