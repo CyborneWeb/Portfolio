@@ -9,6 +9,7 @@ import {
 } from "react-icons/fa";
 import { motion, AnimatePresence } from "framer-motion";
 import { useTranslation } from "react-i18next";
+import LanguageSwitcher from "./LanguageSwitcher";
 
 // Array of nav items with icons
 
@@ -17,15 +18,23 @@ const Navbar = () => {
   const { t, i18n } = useTranslation();
 
   const navItems = [
-    { name: t('navbar.home'), href: "#home", icon: <FaHome className="inline mr-2" /> },
-    { name: t('navbar.about'), href: "#about", icon: <FaUser className="inline mr-2" /> },
     {
-      name: t('navbar.projects'),
+      name: t("navbar.home"),
+      href: "#home",
+      icon: <FaHome className="inline mr-2" />,
+    },
+    {
+      name: t("navbar.about"),
+      href: "#about",
+      icon: <FaUser className="inline mr-2" />,
+    },
+    {
+      name: t("navbar.projects"),
       href: "#projects",
       icon: <FaProjectDiagram className="inline mr-2" />,
     },
     {
-      name: t('navbar.contact'),
+      name: t("navbar.contact"),
       href: "#contact",
       icon: <FaEnvelope className="inline mr-2" />,
     },
@@ -89,12 +98,7 @@ const Navbar = () => {
         )}
       </AnimatePresence>
 
-            <button
-        onClick={() => i18n.changeLanguage(i18n.language === 'en' ? 'sl' : 'en')}
-        className="absolute left-4 top-4 bg-gray-200 dark:bg-gray-700 px-2 py-1 rounded"
-      >
-        {i18n.language === 'en' ? 'Slovenščina' : 'English'}
-      </button>
+        <LanguageSwitcher />
     </nav>
   );
 };
