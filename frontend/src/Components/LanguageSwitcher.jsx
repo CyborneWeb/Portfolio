@@ -56,7 +56,7 @@ const LanguageSwitcher = () => {
       >
         {current.icon}
         <FaChevronDown
-          className={`transition-transform ${open ? "rotate-180" : ""}`}
+          className={`transition-transform ${open ? "rotate-180" : ""} text-gray-800 dark:text-gray-100`}
         />
       </button>
       <AnimatePresence>
