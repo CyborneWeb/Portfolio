@@ -12,7 +12,7 @@ const LANGUAGES = [
       <img
         src="/united-states.png"
         alt="English"
-        className="w-6 h-6 rounded-full object-cover border border-gray-300"
+        className="w-6 h-6 rounded-full object-cover"
       />
     ),
   },
@@ -23,7 +23,7 @@ const LANGUAGES = [
       <img
         src="/slovenia.png"
         alt="Slovenian"
-        className="w-6 h-6 rounded-full object-cover border border-gray-300"
+        className="w-6 h-6 rounded-full object-cover"
       />
     ),
   },
@@ -66,13 +66,13 @@ const LanguageSwitcher = () => {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -8 }}
             transition={{ duration: 0.15 }}
-            className="absolute left-0 mt-2 w-40 bg-white dark:bg-gray-900 rounded shadow-lg border border-gray-200 dark:border-gray-700 z-50"
+            className="absolute left-0 mt-2 w-40 bg-white dark:bg-gray-700 rounded shadow-lg   z-50"
             role="listbox"
           >
             {LANGUAGES.map((lang) => (
               <li
                 key={lang.code}
-                className={`flex items-center gap-2 px-4 py-2 cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors ${
+                className={`flex items-center gap-2 px-4 py-2 cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors text-gray-800 dark:text-gray-100 ${
                   i18n.language === lang.code
                     ? "font-semibold text-blue-600 dark:text-blue-400"
                     : ""
